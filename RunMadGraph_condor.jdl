@@ -1,0 +1,53 @@
+Executable = RunGENSIM_condor.sh
+Universe = vanilla
+Requirements =FileSystemDomain=="fnal.gov" && Arch=="X86_64"
+Notification = ERROR
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+transfer_input_files = RunGENSIM_condor.sh,MG5_aMC_v2.5.4.tar.gz,WMhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WMlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WPhadWMlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WPhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WPlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WPlepWPhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,WPlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat,ZlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+x509userproxy = $ENV(X509_USER_PROXY)
+Output = condor_logs/WMhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WMhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WMhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WMhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WMlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WMlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WMlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WMlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WPhadWMlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WPhadWMlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WPhadWMlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WPhadWMlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WPhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WPhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WPhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WPhadZlepJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WPlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WPlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WPlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WPlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WPlepWPhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WPlepWPhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WPlepWPhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WPlepWPhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/WPlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/WPlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/WPlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = WPlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 
+Output = condor_logs/ZlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Error = condor_logs/ZlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.stdout
+Log = condor_logs/ZlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.log
+Arguments = ZlepZhadJJ_EWK_LO_QCD_mjj100_pTj10_proc_card.dat
+Queue 

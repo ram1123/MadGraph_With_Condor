@@ -24,7 +24,7 @@ ls $test/Events
 ls $test/Events/*
 
 # copy output to eos
-OUTDIR=root://cmseos.fnal.gov//store/user/rasharma/MadGraph_OutPuts/
+OUTDIR=root://cmseos.fnal.gov//store/user/rasharma/MonteCarlo_Samples/Ext7/EWKaQCD
 #
 #
 echo "xrdcp output for condor"

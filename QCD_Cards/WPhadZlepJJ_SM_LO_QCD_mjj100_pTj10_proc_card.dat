@@ -22,7 +22,7 @@
 #************************************************************
 
 set group_subprocesses Auto
-et ignore_six_quark_processes False
+set ignore_six_quark_processes False
 set loop_optimized_output True
 set complex_mass_scheme False
 import model sm-no_b_mass
@@ -32,13 +32,12 @@ define l+ = e+ mu+ ta+
 define l- = e- mu- ta-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-define w1 = w-
-define w2 = w-
-generate p p > w1 w2 j j QED=2 QCD=99, w1 > l- vl~, w2 > j j
-output WMlepWMhadJJ_EWK_LO_QCD_mjj100_pTj10 --nojpeg
+generate p p > w+ z j j QED=2 QCD=99, w+ > j j, z > l+ l- 
+output WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10 --nojpeg
+
 launch
 
-   set nevents 10000
+   set nevents 50000
    set ptj 10
    set ptb 10
    set pta 0
@@ -52,3 +51,4 @@ launch
    set mmjj 100
    set mmbb 100
    set maxjetflavor 5
+   set iseed 39

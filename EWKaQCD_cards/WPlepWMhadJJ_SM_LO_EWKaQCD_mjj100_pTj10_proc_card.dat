@@ -1,0 +1,54 @@
+#************************************************************
+#*                     MadGraph5_aMC@NLO                    *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 2.2.1                 2014-09-25         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph5_aMC@NLO         *
+#*                                                          *
+#*     run as ./bin/mg5_aMC  filename                       *
+#*                                                          *
+#************************************************************
+
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set loop_optimized_output True
+set complex_mass_scheme False
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = p 
+define l+ = e+ mu+ ta+
+define l- = e- mu- ta-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+generate p p > w+ w- j j QED=4 QCD=99, w+ > l+ vl, w- > j j
+output WPlepWMhadJJ_SM_LO_EWKaQCD_mjj100_pTj10 --nojpeg
+
+launch
+
+   set nevents 50000
+   set ptj 10
+   set ptb 10
+   set pta 0
+   set ptl 0
+   set etaj 6.5
+   set etab 6.5
+   set etaa -1
+   set etal -1
+   set drbb 0.4
+   set drbj 0.4
+   set mmjj 100
+   set mmbb 100
+   set maxjetflavor 5
+   set iseed 39

@@ -9,9 +9,14 @@ echo $PWD
 a=$PWD
 echo $a
 
+RandNum=`python -c "import random; print random.randint(0,10000000)"`
+
+echo "Random Seed = ${RandNum}"
+
 tar -xf MG5_aMC_v2.5.4.tar.gz
 cd MG5_aMC_v2_5_4
 cp ../*.dat .
+sed  "s/39/${RandNum}/g" $*
 ./bin/mg5_aMC $*
 
 echo -e "\n\n=====================================================================\n\n"
@@ -24,7 +29,11 @@ ls $test/Events
 ls $test/Events/*
 
 # copy output to eos
-OUTDIR=root://cmseos.fnal.gov//store/user/rasharma/MonteCarlo_Samples/Ext7/QCD/
+OUTDIR=root://cmseos.fnal.gov//store/user/rasharma/MonteCarlo_Samples/MadGraph/QCD
+
+eos root://cmseos.fnal.gov mkdir $OUTDIR/$RandNum
+
+OUTDIR=$OUTDIR/$RandNum
 #
 #
 echo "xrdcp output for condor"

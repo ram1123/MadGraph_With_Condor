@@ -1,5 +1,12 @@
 # MadGraph_With_Condor
 
+* This repo contains script for submitting the madgraph jobs.
+* Just we have to prepare the proc card and give its name in the \*.jdl file
+* Also, if you need to generate a lot of events then you can use the **Queue** feature of condor job.
+	* The script sets "iSeed" for every run so the seed should be unique and hence you are not going to replicate it.
+
+# How to generate events
+
 	cmsrel CMSSW_8_0_11
 	cd CMSSW_8_0_11/src
 	cmsenv
@@ -36,4 +43,7 @@ change directory name
 	sed -i 's/Ext3/Ext4/g' RunMadGraph_QCD.jdl
 	sed -i 's/Ext3/Ext4/g' RunMadGraph_QCD.sh
 	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWKaQCD.jdl
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWKaQCD.sh
+	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWKaQCD.sho
+
+condor_q -submitter rasharma | grep "running,\|idle,\|.fnal.gov" | awk -F "," '{print $3,$4}'
+condor_q -submitter rasharma | grep "running,\|idle,\|.fnal.gov"

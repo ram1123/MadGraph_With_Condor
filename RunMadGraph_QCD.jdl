@@ -5,50 +5,51 @@ Notification = ERROR
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
 request_memory = 3000
+request_cpus = 8
 transfer_input_files = RunMadGraph_QCD.sh,MG5_aMC_v2.5.4.tar.gz,QCD_Cards/WMhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WMlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WMlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WPhadWMlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WPlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WPlepWPhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/WPlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat,QCD_Cards/ZlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
 x509userproxy = $ENV(X509_USER_PROXY)
 Output = condor_logs/July262017/QCD/WMhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WMhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WMhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WMhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WMlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WMlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WMlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WMlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WMlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WMlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WMlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WMlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WPhadWMlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WPhadWMlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WPhadWMlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WPhadWMlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WPhadZlepJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WPlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WPlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WPlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WPlepWMhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WPlepWPhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WPlepWPhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WPlepWPhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WPlepWPhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/WPlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/WPlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/WPlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = WPlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 
 Output = condor_logs/July262017/QCD/ZlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Error = condor_logs/July262017/QCD/ZlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.stdout
 Log = condor_logs/July262017/QCD/ZlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.log
 Arguments = ZlepZhadJJ_SM_LO_QCD_mjj100_pTj10_proc_card.dat
-Queue 10 
+Queue 50 

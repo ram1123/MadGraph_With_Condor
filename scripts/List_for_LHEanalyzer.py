@@ -1,7 +1,7 @@
 import sys
 import os
 
-source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/"
+source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/VBFNLO_outputs/July262017/"
 
 print source
 
@@ -10,7 +10,7 @@ neglect1="Events"
 neglect2="tWch"
 
 #include="202_WPWMhadjj"
-include="201_WPhadWMjj"
+include="jj"
 
 for root, dirs, filenames in os.walk(source):
 	for f in filenames:

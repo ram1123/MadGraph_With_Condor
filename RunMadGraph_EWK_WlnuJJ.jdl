@@ -1,0 +1,40 @@
+Executable = RunMadGraph_EWK_WlnuJJ.sh
+Universe = vanilla
+Requirements =FileSystemDomain=="fnal.gov" && Arch=="X86_64"
+Notification = ERROR
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+request_memory = 5000
+request_cpus = 8
+transfer_input_files = RunMadGraph_EWK_WlnuJJ.sh,MG5_aMC_v2.5.4.tar.gz,WlnuJJ_EWK/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat, WlnuJJ_EWK/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat, WlnuJJ_EWK/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat, WlnuJJ_EWK/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat, WlnuJJ_EWK/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat, WlnuJJ_EWK/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat
+x509userproxy = $ENV(X509_USER_PROXY)
+Output = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1
+Output = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1
+Output = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1
+Output = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1
+Output = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1
+Output = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Error = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
+Log = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
+Arguments = WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
+Queue 1

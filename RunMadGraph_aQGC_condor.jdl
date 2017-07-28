@@ -1,0 +1,14 @@
+Executable = RunMadGraph_aQGC_condor.sh
+Universe = vanilla
+Requirements =FileSystemDomain=="fnal.gov" && Arch=="X86_64"
+Notification = ERROR
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+request_memory = 16000
+transfer_input_files = RunMadGraph_aQGC_condor.sh,MG5_aMC_v2.5.4.tar.gz,SM_LS_LM_LT_UFO.tar.gz,aQGC_WPlepWMhadJJ_EWK_LO_NPle1_mjj100pt10_proc_card.dat
+x509userproxy = $ENV(X509_USER_PROXY)
+Output = condor_logs/aQGC_WPlepWMhadJJ_EWK_LO_NPle1_mjj100pt10.stdout
+Error = condor_logs/aQGC_WPlepWMhadJJ_EWK_LO_NPle1_mjj100pt10.stdout
+Log = condor_logs/aQGC_WPlepWMhadJJ_EWK_LO_NPle1_mjj100pt10.log
+Arguments = aQGC_WPlepWMhadJJ_EWK_LO_NPle1_mjj100pt10_proc_card.dat
+Queue 

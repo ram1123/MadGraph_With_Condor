@@ -1,7 +1,7 @@
 import sys
 import os
 
-source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/"
+source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/VBFNLO_outputs/July262017/"
 
 print "\n======================================="
 print "This is the name of the script: ", sys.argv[0]

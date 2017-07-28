@@ -1,11 +1,11 @@
 import sys
 import os
 
-source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/"
+source = "/eos/uscms/store/user/rasharma/MonteCarlo_Samples/VBFNLO_outputs/July262017/201_WPhadWMjj/"
 
 print source
 
-neglect1="VBFNLO_outputs"
+neglect1="MadGraph"
 neglect2="tWch"
 
 for root, dirs, filenames in os.walk(source):

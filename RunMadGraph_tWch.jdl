@@ -1,0 +1,208 @@
+Executable = RunMadGraph_tWch.sh
+Universe = vanilla
+Notification = ERROR
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+request_memory = 5000
+transfer_input_files = RunMadGraph_tWch.sh,MG5_aMC_v2.5.4.tar.gz, TWch_samples/tWch_qcd_0.dat, TWch_samples/tWch_qcd_10.dat, TWch_samples/tWch_qcd_11.dat, TWch_samples/tWch_qcd_12.dat, TWch_samples/tWch_qcd_13.dat, TWch_samples/tWch_qcd_14.dat, TWch_samples/tWch_qcd_15.dat, TWch_samples/tWch_qcd_16.dat, TWch_samples/tWch_qcd_17.dat, TWch_samples/tWch_qcd_18.dat, TWch_samples/tWch_qcd_19.dat, TWch_samples/tWch_qcd_1.dat, TWch_samples/tWch_qcd_20.dat, TWch_samples/tWch_qcd_21.dat, TWch_samples/tWch_qcd_22.dat, TWch_samples/tWch_qcd_23.dat, TWch_samples/tWch_qcd_24.dat, TWch_samples/tWch_qcd_25.dat, TWch_samples/tWch_qcd_26.dat, TWch_samples/tWch_qcd_27.dat, TWch_samples/tWch_qcd_28.dat, TWch_samples/tWch_qcd_29.dat, TWch_samples/tWch_qcd_2.dat, TWch_samples/tWch_qcd_30.dat, TWch_samples/tWch_qcd_31.dat, TWch_samples/tWch_qcd_32.dat, TWch_samples/tWch_qcd_33.dat, TWch_samples/tWch_qcd_34.dat, TWch_samples/tWch_qcd_35.dat, TWch_samples/tWch_qcd_36.dat, TWch_samples/tWch_qcd_37.dat, TWch_samples/tWch_qcd_38.dat, TWch_samples/tWch_qcd_39.dat, TWch_samples/tWch_qcd_3.dat, TWch_samples/tWch_qcd_4.dat, TWch_samples/tWch_qcd_5.dat, TWch_samples/tWch_qcd_6.dat, TWch_samples/tWch_qcd_7.dat, TWch_samples/tWch_qcd_8.dat, TWch_samples/tWch_qcd_9.dat, TWch_samples/tWch_qcd.dat
+x509userproxy = $ENV(X509_USER_PROXY)
+Output = condor_logs/tWch/tWch_Ext0.stdout
+Error =  condor_logs/tWch/tWch_Ext0.stdout
+Log =    condor_logs/tWch/tWch_Ext0.log
+Arguments = tWch_qcd_0.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext1.stdout
+Error =  condor_logs/tWch/tWch_Ext1.stdout
+Log =    condor_logs/tWch/tWch_Ext1.log
+Arguments = tWch_qcd_1.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext2.stdout
+Error =  condor_logs/tWch/tWch_Ext2.stdout
+Log =    condor_logs/tWch/tWch_Ext2.log
+Arguments = tWch_qcd_2.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext3.stdout
+Error =  condor_logs/tWch/tWch_Ext3.stdout
+Log =    condor_logs/tWch/tWch_Ext3.log
+Arguments = tWch_qcd_3.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext4.stdout
+Error =  condor_logs/tWch/tWch_Ext4.stdout
+Log =    condor_logs/tWch/tWch_Ext4.log
+Arguments = tWch_qcd_4.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext5.stdout
+Error =  condor_logs/tWch/tWch_Ext5.stdout
+Log =    condor_logs/tWch/tWch_Ext5.log
+Arguments = tWch_qcd_5.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext6.stdout
+Error =  condor_logs/tWch/tWch_Ext6.stdout
+Log =    condor_logs/tWch/tWch_Ext6.log
+Arguments = tWch_qcd_6.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext7.stdout
+Error =  condor_logs/tWch/tWch_Ext7.stdout
+Log =    condor_logs/tWch/tWch_Ext7.log
+Arguments = tWch_qcd_7.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext8.stdout
+Error =  condor_logs/tWch/tWch_Ext8.stdout
+Log =    condor_logs/tWch/tWch_Ext8.log
+Arguments = tWch_qcd_8.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext9.stdout
+Error =  condor_logs/tWch/tWch_Ext9.stdout
+Log =    condor_logs/tWch/tWch_Ext9.log
+Arguments = tWch_qcd_9.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext10.stdout
+Error =  condor_logs/tWch/tWch_Ext10.stdout
+Log =    condor_logs/tWch/tWch_Ext10.log
+Arguments = tWch_qcd_10.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext11.stdout
+Error =  condor_logs/tWch/tWch_Ext11.stdout
+Log =    condor_logs/tWch/tWch_Ext11.log
+Arguments = tWch_qcd_11.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext12.stdout
+Error =  condor_logs/tWch/tWch_Ext12.stdout
+Log =    condor_logs/tWch/tWch_Ext12.log
+Arguments = tWch_qcd_12.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext13.stdout
+Error =  condor_logs/tWch/tWch_Ext13.stdout
+Log =    condor_logs/tWch/tWch_Ext13.log
+Arguments = tWch_qcd_13.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext14.stdout
+Error =  condor_logs/tWch/tWch_Ext14.stdout
+Log =    condor_logs/tWch/tWch_Ext14.log
+Arguments = tWch_qcd_14.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext15.stdout
+Error =  condor_logs/tWch/tWch_Ext15.stdout
+Log =    condor_logs/tWch/tWch_Ext15.log
+Arguments = tWch_qcd_15.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext16.stdout
+Error =  condor_logs/tWch/tWch_Ext16.stdout
+Log =    condor_logs/tWch/tWch_Ext16.log
+Arguments = tWch_qcd_16.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext17.stdout
+Error =  condor_logs/tWch/tWch_Ext17.stdout
+Log =    condor_logs/tWch/tWch_Ext17.log
+Arguments = tWch_qcd_17.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext18.stdout
+Error =  condor_logs/tWch/tWch_Ext18.stdout
+Log =    condor_logs/tWch/tWch_Ext18.log
+Arguments = tWch_qcd_18.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext19.stdout
+Error =  condor_logs/tWch/tWch_Ext19.stdout
+Log =    condor_logs/tWch/tWch_Ext19.log
+Arguments = tWch_qcd_19.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext20.stdout
+Error =  condor_logs/tWch/tWch_Ext20.stdout
+Log =    condor_logs/tWch/tWch_Ext20.log
+Arguments = tWch_qcd_20.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext21.stdout
+Error =  condor_logs/tWch/tWch_Ext21.stdout
+Log =    condor_logs/tWch/tWch_Ext21.log
+Arguments = tWch_qcd_21.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext22.stdout
+Error =  condor_logs/tWch/tWch_Ext22.stdout
+Log =    condor_logs/tWch/tWch_Ext22.log
+Arguments = tWch_qcd_22.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext23.stdout
+Error =  condor_logs/tWch/tWch_Ext23.stdout
+Log =    condor_logs/tWch/tWch_Ext23.log
+Arguments = tWch_qcd_23.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext24.stdout
+Error =  condor_logs/tWch/tWch_Ext24.stdout
+Log =    condor_logs/tWch/tWch_Ext24.log
+Arguments = tWch_qcd_24.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext25.stdout
+Error =  condor_logs/tWch/tWch_Ext25.stdout
+Log =    condor_logs/tWch/tWch_Ext25.log
+Arguments = tWch_qcd_25.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext26.stdout
+Error =  condor_logs/tWch/tWch_Ext26.stdout
+Log =    condor_logs/tWch/tWch_Ext26.log
+Arguments = tWch_qcd_26.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext27.stdout
+Error =  condor_logs/tWch/tWch_Ext27.stdout
+Log =    condor_logs/tWch/tWch_Ext27.log
+Arguments = tWch_qcd_27.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext28.stdout
+Error =  condor_logs/tWch/tWch_Ext28.stdout
+Log =    condor_logs/tWch/tWch_Ext28.log
+Arguments = tWch_qcd_28.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext29.stdout
+Error =  condor_logs/tWch/tWch_Ext29.stdout
+Log =    condor_logs/tWch/tWch_Ext29.log
+Arguments = tWch_qcd_29.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext30.stdout
+Error =  condor_logs/tWch/tWch_Ext30.stdout
+Log =    condor_logs/tWch/tWch_Ext30.log
+Arguments = tWch_qcd_30.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext31.stdout
+Error =  condor_logs/tWch/tWch_Ext31.stdout
+Log =    condor_logs/tWch/tWch_Ext31.log
+Arguments = tWch_qcd_31.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext32.stdout
+Error =  condor_logs/tWch/tWch_Ext32.stdout
+Log =    condor_logs/tWch/tWch_Ext32.log
+Arguments = tWch_qcd_32.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext33.stdout
+Error =  condor_logs/tWch/tWch_Ext33.stdout
+Log =    condor_logs/tWch/tWch_Ext33.log
+Arguments = tWch_qcd_33.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext34.stdout
+Error =  condor_logs/tWch/tWch_Ext34.stdout
+Log =    condor_logs/tWch/tWch_Ext34.log
+Arguments = tWch_qcd_34.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext35.stdout
+Error =  condor_logs/tWch/tWch_Ext35.stdout
+Log =    condor_logs/tWch/tWch_Ext35.log
+Arguments = tWch_qcd_35.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext36.stdout
+Error =  condor_logs/tWch/tWch_Ext36.stdout
+Log =    condor_logs/tWch/tWch_Ext36.log
+Arguments = tWch_qcd_36.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext37.stdout
+Error =  condor_logs/tWch/tWch_Ext37.stdout
+Log =    condor_logs/tWch/tWch_Ext37.log
+Arguments = tWch_qcd_37.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext38.stdout
+Error =  condor_logs/tWch/tWch_Ext38.stdout
+Log =    condor_logs/tWch/tWch_Ext38.log
+Arguments = tWch_qcd_38.dat 
+Queue 
+Output = condor_logs/tWch/tWch_Ext39.stdout
+Error =  condor_logs/tWch/tWch_Ext39.stdout
+Log =    condor_logs/tWch/tWch_Ext39.log
+Arguments = tWch_qcd_39.dat 
+Queue 

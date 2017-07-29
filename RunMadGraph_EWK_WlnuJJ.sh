@@ -20,7 +20,7 @@ sed  "s/39/${RandNum}/g" $1
 ./bin/mg5_aMC $1
 
 echo -e "\n\n=====================================================================\n\n"
-test=`echo $* | sed 's/_proc_card.dat//g'`
+test=`echo $1 | sed 's/_proc_card.dat//g'`
 echo "=====> Variable test = "$test
 echo "List all root files = "
 ls 
@@ -32,7 +32,7 @@ ls $test/Events/*
 OUTDIR=root://cmseos.fnal.gov//store/user/rasharma/MonteCarlo_Samples/MadGraph/EWK_Wlnujj
 
 #eos root://cmseos.fnal.gov mkdir $OUTDIR/$RandNum
-eos root://cmseos.fnal.gov mkdir $OUTDIR/${FILE}_$3_$2
+eos root://cmseos.fnal.gov mkdir $OUTDIR/${test}_$3_$2
 
 #OUTDIR=$OUTDIR/$RandNum
 #
@@ -40,7 +40,9 @@ eos root://cmseos.fnal.gov mkdir $OUTDIR/${FILE}_$3_$2
 echo "xrdcp output for condor"
 for FILE in $test/Events/*/*
 do
-  echo "xrdcp -f ${FILE} ${OUTDIR}/${FILE}_$3_$2"
-  xrdcp -f ${FILE} ${OUTDIR}/${FILE}_$3_$2 2>&1
+  echo "xrdcp -f ${FILE} ${OUTDIR}/${test}_$3_$2/${FILE}"
+  xrdcp -f ${FILE} ${OUTDIR}/${test}_$3_$2/${FILE} 2>&1
+  echo "=============================="
+  #xrdcp -r ${FILE} ${OUTDIR}/${test}_$3_$2/ 2>&1
 done
 date

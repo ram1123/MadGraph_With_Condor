@@ -12,29 +12,29 @@ Output = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_p
 Error = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WMhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300
 Output = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Error = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WMhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300
 Output = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Error = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WMhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300
 Output = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Error = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WPhadElenuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300
 Output = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Error = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WPhadMunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300
 Output = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Error = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).stdout
 Log = condor_logs/July262017/EWK_Wlnujj/WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card_$(Process).log
 Arguments = WPhadTaunuJJ_SM_LO_EWK_mjj100_pTj10_proc_card.dat $(Process) $(ClusterId)
-Queue 1
+Queue 300

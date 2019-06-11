@@ -1,49 +1,48 @@
-# MadGraph_With_Condor
+# Run Standalone Madgraph Using Condor
 
-* This repo contains script for submitting the madgraph jobs.
-* Just we have to prepare the proc card and give its name in the \*.jdl file
-* Also, if you need to generate a lot of events then you can use the **Queue** feature of condor job.
-	* The script sets "iSeed" for every run so the seed should be unique and hence you are not going to replicate it.
+The main script is  `generate_lhe_condor.py`. Its help argument goes like:
 
-# How to generate events
+```bash
+python generate_lhe_condor.py -h
+usage: generate_lhe_condor.py [-h] [-i INPUTPATH] -f TARFILE [-o OUTPUTPATH]
+                              [-od OUTPUTDIR] [-t TESTRUN] [-c CMSSWVERSION]
+                              [-j JDLFILENAME] [-m MEMORY] [-n NEVENTS]
+                              [-cpu NCPU] [-r RANDOMNUMBER]
 
-	cmsrel CMSSW_8_0_11
-	cd CMSSW_8_0_11/src
-	cmsenv
-	wget https://launchpad.net/mg5amcnlo/2.0/2.5.x/+download/MG5_aMC_v2.5.5.tar.gz
+User inputs
 
-* Modify files RunMadGraph_condor.sh and RunMadGraph_condor.jdl, then submit it using
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUTPATH, --inputpath INPUTPATH
+                        tar file path
+  -f TARFILE, --tarfile TARFILE
+                        input tar file name
+  -o OUTPUTPATH, --outputpath OUTPUTPATH
+                        outputpath path of LHEFiles
+  -od OUTPUTDIR, --outputdir OUTPUTDIR
+                        Name of output directory
+  -t TESTRUN, --testrun TESTRUN
+                        is it a test run for check? True/False
+  -c CMSSWVERSION, --cmsswversion CMSSWVERSION
+                        cmssw version to be used
+  -j JDLFILENAME, --jdlfilename JDLFILENAME
+                        name of jdl file and its sh file
+  -m MEMORY, --memory MEMORY
+                        memory for condor jobs
+  -n NEVENTS, --nevents NEVENTS
+                        Total number of events to generate.
+  -cpu NCPU, --ncpu NCPU
+                        number of cpu to run
+  -r RANDOMNUMBER, --randomnumber RANDOMNUMBER
+                        random seed
+```
 
-		condor_submit RunMadGraph_condor.jdl
+# How to use
 
-* Note that all input \*_proc_card.dat's prefix should be exactly same as  name of output file that madgraph will create.
+1. STEP: 1:
+   ```bash
+   python generate_lhe_condor.py -f <Proc_card_name.dat>
+   ```
+   This will create the `jdl` and `sh` file for the condor submission. 
 
-* Before submitting the condor you have to 
-
-		voms-proxy-init --voms cms --valid 168:00
-
-Extract cross-section
-
-	grep "Total:\|Cross-section"  <fileName>
-
-Check the random seed from stdout file
-
-	grep "Using random number seed offset" */*.stdout
-
-Change the seed 
-
-	sed -i 's/set iseed 15/set iseed 17/g' EWK_cards/*.dat
-	sed -i 's/set iseed 15/set iseed 17/g' QCD_Cards/*.dat
-	sed -i 's/set iseed 15/set iseed 17/g' EWKaQCD_cards/*.dat
-
-change directory name
-
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWK.jdl
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWK.sh
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_QCD.jdl
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_QCD.sh
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWKaQCD.jdl
-	sed -i 's/Ext3/Ext4/g' RunMadGraph_EWKaQCD.sho
-
-condor_q -submitter rasharma | grep "running,\|idle,\|.fnal.gov" | awk -F "," '{print $3,$4}'
-condor_q -submitter rasharma | grep "running,\|idle,\|.fnal.gov"
+2. STEP: 2: Submit the condor job using the file created by STEP:1.

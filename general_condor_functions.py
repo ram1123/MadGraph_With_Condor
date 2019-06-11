@@ -136,7 +136,7 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'echo "====> List only LHE files : " ')
     outscript.write("\n"+'ls LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10/Events/run_01/')
     outscript.write("\n"+'echo "====> copying *.lhe file to stores area..." ')
-    outscript.write("\n"+'xrdcp -f LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10/Events/run_01/*.lhe.gz root://cmseos.fnal.gov/' + output_folder)
+    outscript.write("\n"+'xrdcp -f LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10/Events/run_01/*.lhe.gz root://cmseos.fnal.gov/' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz')
     outscript.write("\n"+'echo "End job on " `date`')
     outscript.write("\n"+'cd ${_CONDOR_SCRATCH_DIR}')
     outscript.write("\n"+'rm -rf ' + args.cmsswversion)

@@ -14,7 +14,7 @@ generate p p > l+ vl w- j j QED=5 QCD=0, w- > j j
 output LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10 --nojpeg
 
 launch
-   set nevents 10000
+   set nevents 100
    set ptj 10
    set ptb 10
    set pta 0

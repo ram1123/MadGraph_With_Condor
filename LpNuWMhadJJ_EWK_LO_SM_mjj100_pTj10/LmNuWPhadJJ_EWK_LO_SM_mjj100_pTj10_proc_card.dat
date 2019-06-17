@@ -10,8 +10,8 @@ define l- = e- mu-
 define vl = ve vm
 define vl~ = ve~ vm~
 #generate p p > l+ vl w- j j QED=5 QCD=0 
-generate p p > l+ vl w- j j QED=5 QCD=0, w- > j j 
-output LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10 --nojpeg
+generate p p > l- vl~ w+ j j QED=5 QCD=0, w+ > j j 
+output test --nojpeg
 
 launch
    set nevents 5000

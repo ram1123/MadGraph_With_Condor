@@ -7,10 +7,6 @@ from general_condor_functions import create_sh_file_for_condor
 
 def getargs():
     parser = getbasic_parser()
-    parser.add_argument('-n', '--nevents',
-                        default=1100,
-                        help='Total number of events to generate.'
-                       )
     parser.add_argument('-cpu', '--ncpu',
                         default=8,
                         help='number of cpu to run'
@@ -27,7 +23,7 @@ def main():
     args = getargs()
 
     # list of input files to be added in jdl file
-    inputlist = args.jdlfilename+".sh, LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10/LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10_proc_card.dat"
+    inputlist = args.jdlfilename+".sh, "+args.InProcCardPath+"/"+args.tarfile
 
     # command to run
     command = './bin/mg5_aMC '+args.tarfile

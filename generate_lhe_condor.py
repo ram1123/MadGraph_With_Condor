@@ -4,6 +4,7 @@ from general_condor_functions import getbasic_parser
 from general_condor_functions import create_output_directory
 from general_condor_functions import create_jdl_file_for_condor
 from general_condor_functions import create_sh_file_for_condor
+import os
 
 def getargs():
     parser = getbasic_parser()
@@ -23,7 +24,9 @@ def main():
     args = getargs()
 
     # list of input files to be added in jdl file
+    if args.InProcCardPath == '': args.InProcCardPath = os.getcwd()
     inputlist = args.jdlfilename+".sh, "+args.InProcCardPath+"/"+args.tarfile
+    print "inputlist : ",inputlist
 
     # command to run
     command = './bin/mg5_aMC '+args.tarfile

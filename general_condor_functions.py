@@ -13,7 +13,7 @@ def getbasic_parser():
                         help='tar file path'
                        )
     parser.add_argument('-il', '--InProcCardPath',
-		        default='/uscms/home/rasharma/nobackup/aQGC_analysis/Run2/MadGraph_With_Condor/LpNuWMhadJJ_EWK_LO_SM_mjj100_pTj10',
+		        default='',
 			help='path of input LHE file'
                        )
     parser.add_argument('-n', '--nevents',
@@ -25,7 +25,7 @@ def getbasic_parser():
                         help='input tar file name'
                        )
     parser.add_argument('-o', '--outputpath',
-                        default='/store/user/lnujj/VVjj_aQGC/LHEFiles/',
+                        default='/eos/user/r/rasharma/www/Madgraph/ggF/Condor/',
                         help='outputpath path of LHEFiles'
                        )
     parser.add_argument('-od', '--outputdir',
@@ -37,7 +37,7 @@ def getbasic_parser():
                         help='is it a test run for check? True/False'
                        )
     parser.add_argument('-c', '--cmsswversion',
-                        default='CMSSW_9_3_8',
+                        default='CMSSW_10_6_8',
                         help='cmssw version to be used'
                        )
     parser.add_argument('-j', '--jdlfilename',
@@ -65,14 +65,16 @@ def create_output_directory(args):
         output_log_path = "output_logs/" + datetime.datetime.now().strftime('%Y_%m_%d_%Hh%M') + "_TEST"
         print "Name of output dir: ", output_folder
     else:
-        os.system('xrdfs root://cmseos.fnal.gov/ mkdir ' + args.outputpath + args.outputdir)
+        #os.system('xrdfs root://cmseos.fnal.gov/ mkdir ' + args.outputpath + args.outputdir)
+        os.system('mkdir -p '+ args.outputpath + args.outputdir)
         output_folder = args.outputpath+args.outputdir+"/"+datetime.datetime.now().strftime('%Y_%m_%d_%Hh%M')
         output_log_path = "output_logs/" + args.outputdir+"/"+ datetime.datetime.now().strftime('%Y_%m_%d_%Hh%M')
         print "Name of output directory    : ", output_folder
 	print "Name of output log directory: ",output_log_path
 
     # create directory in eos for output files
-    os.system('xrdfs root://cmseos.fnal.gov/ mkdir ' + output_folder)
+    #os.system('xrdfs root://cmseos.fnal.gov/ mkdir ' + output_folder)
+    os.system('mkdir ' + output_folder)
     # create directory in pwd for log files
     os.system('mkdir -p ' + output_log_path)
     return output_folder, output_log_path
@@ -116,7 +118,7 @@ def create_jdl_file_for_condor(args, inputlist, output_log_path):
     outjdl_file.write("Error  = "+output_log_path+"/"+args.outputdir+"_$(Process).stdout\n")
     outjdl_file.write("Log  = "+output_log_path+"/"+args.outputdir+"_$(Process).log\n")
     outjdl_file.write("Arguments = $(Process) $(Cluster)\n")
-    outjdl_file.write("Queue "+args.totaljobs+"\n")
+    outjdl_file.write("Queue "+str(args.totaljobs)+"\n")
 
 def create_sh_file_for_condor(args, command, output_folder):
     outscript = open(args.jdlfilename+".sh", "w")
@@ -129,15 +131,18 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'eval `scramv1 project CMSSW '+args.cmsswversion+'`')
     outscript.write("\n"+'cd '+ args.cmsswversion + '/src/')
     outscript.write("\n"+'eval `scram runtime -sh`')
-    outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.5.tar.gz')
-    outscript.write("\n"+'tar -xf MG5_aMC_v2.6.5.tar.gz')
-    outscript.write("\n"+'cd MG5_aMC_v2_6_5')
+    #outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.5.tar.gz')
+    MadgraphTarFile = "MG5_aMC_v2.6.7.tar.gz"
+    MadgraphDirName = "MG5_aMC_v2_6_7"
+    outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/'+MadgraphTarFile)
+    outscript.write("\n"+'tar -xf '+MadgraphTarFile)
+    outscript.write("\n"+'cd '+MadgraphDirName)
     outscript.write("\n"+'cp ../../../'+args.tarfile+' .')
     outscript.write("\n"+'echo "====> List files : " ')
     outscript.write("\n"+'ls -alh')
-    outscript.write("\n"+'sed -i "s/39/'+str(random.randint(1,10))+'$1/g" '+args.tarfile)
-    outscript.write("\n"+'sed -i "14s/test/'+args.outputdir+'/g" '+args.tarfile)
-    outscript.write("\n"+'sed -i "17s/5000/'+str(args.nevents)+'/g" '+args.tarfile)
+    outscript.write("\n"+'sed -i "s/ISEEDD/'+str(random.randint(1,10))+'$1/g" '+args.tarfile)
+    outscript.write("\n"+'sed -i "s/OUTDIR/'+args.outputdir+'/g" '+args.tarfile)
+    outscript.write("\n"+'sed -i "s/NEVENTT/'+str(args.nevents)+'/g" '+args.tarfile)
     outscript.write("\n"+"=================================")
     outscript.write("\n"+"cat "+args.tarfile)
     outscript.write("\n"+"=================================")
@@ -151,10 +156,12 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'echo "====> List file in '+args.outputdir+'/Events/run_01/ : " ')
     outscript.write("\n"+'ls '+args.outputdir+'/Events/run_01/')
     outscript.write("\n"+'echo "====> copying *.lhe file to stores area..." ')
-    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz root://cmseos.fnal.gov/' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz"')
-    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz root://cmseos.fnal.gov/' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz')
-    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/*.log root://cmseos.fnal.gov/' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log"')
-    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/*.log root://cmseos.fnal.gov/' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log')
+    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz"')
+    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz')
+    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log"')
+    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log')
+    outscript.write("\n"+'echo "xrdcp -r -f '+args.outputdir+' ' + output_folder+'/'+'"')
+    outscript.write("\n"+'xrdcp -r -f '+args.outputdir+' ' + output_folder+'/'+'')
     outscript.write("\n"+'echo "End job on " `date`')
     outscript.write("\n"+'cd ${_CONDOR_SCRATCH_DIR}')
     outscript.write("\n"+'rm -rf ' + args.cmsswversion)

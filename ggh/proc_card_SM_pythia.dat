@@ -1,0 +1,97 @@
+#set stdout_level DEBUG
+
+#import model loop_sm
+generate p p > h j [QCD] 
+
+output Feb11_SM_ppH1j_QCD
+launch
+   set run_tag MLM30
+   set ickkw 1
+   set xqcut 30
+#   set run_tag ptj_10GeV
+#   #set ickkw 0
+#   #set xqcut 20
+#   set ptj 10
+#   set frblock 1 0.0
+#   set frblock 2 0.0
+#   set frblock 3 0.0
+#   set frblock 4 0.0
+#   set frblock 5 0.0
+#   set frblock 6 0.0
+#   set frblock 7 0.0
+#   set frblock 8 0.0
+#   set frblock 9 0.0
+#   set frblock 10 0.0
+#   set frblock 11 0.0
+#   set frblock 12 0.0
+#   set frblock 13 0.0
+#   set frblock 14 0.0
+#   set frblock 15 0.0
+#   set frblock 16 0.0
+#   set frblock 17 0.0
+#   set frblock 18 10.00000e+15 
+#   set frblock 19 0.0
+#   set frblock 20 0.0
+#   set frblock 21 0.0
+#   set frblock 22 0.0
+#   set frblock 23 0.0
+#   set frblock 24 0.0
+#   set frblock 25 0.0
+#   set frblock 26 0.0
+#   set frblock 27 0.0
+#   set frblock 28 0.0
+#   set frblock 29 0.0
+#   set frblock 30 0.0
+#   set frblock 31 0.0
+#   set frblock 32 0.0
+#   set frblock 33 0.0
+#   set frblock 34 0.0
+#   set frblock 35 0.0
+#   set frblock 36 0.0
+#   set frblock 37 0.0
+#   set frblock 38 0.0
+#   set frblock 39 0.0
+#   set frblock 40 0.0
+#   set frblock 41 0.0
+#   set frblock 42 0.0
+#   set frblock 43 0.0
+#   set frblock 44 0.0
+#   set frblock 45 0.0
+#   set frblock 46 0.0
+#   set frblock 47 0.0
+#   set frblock 48 0.0
+#   set frblock 49 0.0
+#   set frblock 50 0.0
+#   set frblock 51 0.0
+#   set frblock 52 0.0
+#   set frblock 53 0.0
+#   set frblock 54 0.0
+#   set frblock 55 0.0
+#   set frblock 56 0.0
+#   set frblock 57 0.0
+#   set frblock 58 0.0
+#   set frblock 59 0.0
+#   set frblock 60 0.0
+#   set frblock 61 0.0
+#   set frblock 62 0.0
+#   set frblock 63 0.0
+#   set frblock 64 0.0
+#   set frblock 65 0.0
+#   set frblock 66 0.0
+#   set frblock 67 0.0
+#   set frblock 68 0.0
+#   set frblock 69 0.0
+#   set frblock 70 0.0
+#   set frblock 71 0.0
+#   set frblock 72 0.0
+#   set frblock 73 0.0
+#   set frblock 74 0.0
+#   set frblock 75 0.0
+#   set frblock 76 0.0
+#   set frblock 77 0.0
+#   set frblock 78 0.0
+#   set frblock 79 0.0
+#   set frblock 80 0.0
+#   set frblock 81 0.0
+#   set frblock 82 0.0
+#   set frblock 83 8.038700e+01 

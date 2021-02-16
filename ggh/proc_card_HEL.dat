@@ -1,0 +1,64 @@
+import model HEL_UFO
+
+#generate p p > h j QED=1 [QCD]
+generate p p > h j QED=1 NP<=1
+#add process p p > h j QED=1  NP<=1 @1
+#add process p p > h j j QED=1 NP<=1 @2
+
+output Feb11_HEL_ppH1j_QED1NP1
+launch
+   set run_tag MLM30
+   set ickkw 1
+   set xqcut 30
+   #set ptj 10
+   set newcoup 1 0.0
+   set newcoup 2 0.0
+   set newcoup 3 0.0
+   set newcoup 4 0.0
+   set newcoup 5 0.0
+   set newcoup 6 0.0
+   set newcoup 7 0.0
+   set newcoup 8 0.0
+   set newcoup 9 0.0
+   set newcoup 10 0.0
+   set newcoup 11 0.0
+   set newcoup 12 0.0
+   set newcoup 13 0.0
+   set newcoup 14 0.0
+   set newcoup 15 0.0
+   set newcoup 16 0.0
+   set newcoup 17 0.0
+   set newcoup 18 0.0
+   set newcoup 19 0.0
+   set newcoup 20 0.0
+   set newcoup 21 0.0
+   set newcoup 22 0.0
+   set newcoup 23 0.0
+   set newcoup 24 0.0
+   set newcoup 25 0.0
+   set newcoup 26 0.0
+   set newcoup 27 0.0
+   set newcoup 28 0.0
+   set newcoup 29 0.0
+   set newcoup 30 0.0
+   set newcoup 31 0.0
+   set newcoup 32 0.0
+   set newcoup 33 0.0
+   set newcoup 34 0.0
+   set newcoup 35 0.0
+   set newcoup 36 0.0
+   set newcoup 37 0.0
+   set newcoup 38 0.0
+   set newcoup 39 0.0
+launch
+   set run_tag MLM20
+   set ickkw 1
+   set xqcut 20
+launch
+   set run_tag MLM10
+   set ickkw 1
+   set xqcut 10
+launch
+   set run_tag ickkw0
+   set ickkw 0
+   set xqcut 0

@@ -12,15 +12,15 @@ def getbasic_parser():
                         default='/store/user/lnujj/VVjj_aQGC/Gridpacks/',
                         help='tar file path'
                        )
-    parser.add_argument('-il', '--InProcCardPath',
+    parser.add_argument('-ip', '--InProcCardPath',
 		        default='',
-			help='path of input LHE file'
+			help='path of input proc card'
                        )
     parser.add_argument('-n', '--nevents',
                         default=5000,	# if number of jobs are more than 5k then MG5 splits them
                         help='Total number of events to generate.'
                        )
-    parser.add_argument('-f', '--tarfile',
+    parser.add_argument('-p', '--ProcCard',
                         required=True,
                         help='input tar file name'
                        )
@@ -127,7 +127,7 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'echo "Running on: `uname -a`"')
     outscript.write("\n"+'echo "System software: `cat /etc/redhat-release`"')
     outscript.write("\n"+'source /cvmfs/cms.cern.ch/cmsset_default.sh')
-    outscript.write("\n"+'export SCRAM_ARCH=slc6_amd64_gcc530')
+    outscript.write("\n"+'export SCRAM_ARCH=slc7_amd64_gcc820')
     outscript.write("\n"+'eval `scramv1 project CMSSW '+args.cmsswversion+'`')
     outscript.write("\n"+'cd '+ args.cmsswversion + '/src/')
     outscript.write("\n"+'eval `scram runtime -sh`')
@@ -137,14 +137,14 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/'+MadgraphTarFile)
     outscript.write("\n"+'tar -xf '+MadgraphTarFile)
     outscript.write("\n"+'cd '+MadgraphDirName)
-    outscript.write("\n"+'cp ../../../'+args.tarfile+' .')
+    outscript.write("\n"+'cp ../../../'+args.ProcCard+' .')
     outscript.write("\n"+'echo "====> List files : " ')
     outscript.write("\n"+'ls -alh')
-    outscript.write("\n"+'sed -i "s/ISEEDD/'+str(random.randint(1,10))+'$1/g" '+args.tarfile)
-    outscript.write("\n"+'sed -i "s/OUTDIR/'+args.outputdir+'/g" '+args.tarfile)
-    outscript.write("\n"+'sed -i "s/NEVENTT/'+str(args.nevents)+'/g" '+args.tarfile)
+    outscript.write("\n"+'sed -i "s/ISEEDD/'+str(random.randint(1,10))+'$1/g" '+args.ProcCard)
+    outscript.write("\n"+'sed -i "s/OUTDIR/'+args.outputdir+'/g" '+args.ProcCard)
+    outscript.write("\n"+'sed -i "s/NEVENTT/'+str(args.nevents)+'/g" '+args.ProcCard)
     outscript.write("\n"+"=================================")
-    outscript.write("\n"+"cat "+args.tarfile)
+    outscript.write("\n"+"cat "+args.ProcCard)
     outscript.write("\n"+"=================================")
     outscript.write("\n"+command)
     outscript.write("\n"+'echo "====> List files : " ')
@@ -156,10 +156,10 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'echo "====> List file in '+args.outputdir+'/Events/run_01/ : " ')
     outscript.write("\n"+'ls '+args.outputdir+'/Events/run_01/')
     outscript.write("\n"+'echo "====> copying *.lhe file to stores area..." ')
-    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz"')
-    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.lhe.gz')
-    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log"')
-    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.tarfile+'_'+'${1}'+'.log')
+    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.ProcCard+'_'+'${1}'+'.lhe.gz"')
+    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/Events/run_01/*.lhe.gz ' + output_folder+'/'+args.ProcCard+'_'+'${1}'+'.lhe.gz')
+    outscript.write("\n"+'echo "xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.ProcCard+'_'+'${1}'+'.log"')
+    outscript.write("\n"+'xrdcp -f '+args.outputdir+'/*.log ' + output_folder+'/'+args.ProcCard+'_'+'${1}'+'.log')
     outscript.write("\n"+'echo "xrdcp -r -f '+args.outputdir+' ' + output_folder+'/'+'"')
     outscript.write("\n"+'xrdcp -r -f '+args.outputdir+' ' + output_folder+'/'+'')
     outscript.write("\n"+'echo "End job on " `date`')

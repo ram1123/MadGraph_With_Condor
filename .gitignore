@@ -1,4 +1,6 @@
 # User defined 
+rasharma.cc
+*.tar.gz
 docker_stderror
 screen*
 output_logs

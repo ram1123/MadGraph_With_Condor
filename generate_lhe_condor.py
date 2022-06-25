@@ -25,11 +25,11 @@ def main():
 
     # list of input files to be added in jdl file
     if args.InProcCardPath == '': args.InProcCardPath = os.getcwd()
-    inputlist = args.jdlfilename+".sh, "+args.InProcCardPath+"/"+args.tarfile
+    inputlist = args.jdlfilename+".sh, "+args.InProcCardPath+"/"+args.ProcCard
     print "inputlist : ",inputlist
 
     # command to run
-    command = './bin/mg5_aMC '+args.tarfile
+    command = './bin/mg5_aMC '+args.ProcCard
 
     # Get Output directory name
     output_folder, output_log_path = create_output_directory(args)

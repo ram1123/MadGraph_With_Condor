@@ -1,0 +1,16 @@
+Executable = run_mg5.sh
+Universe = vanilla
+Notification = ERROR
+Should_Transfer_Files = YES
+Transfer_Output_Files = ""
+Transfer_Input_Files = run_mg5.sh, AnkitaCards
+x509userproxy = $ENV(X509_USER_PROXY)
+getenv      = True
++JobFlavour = "testmatch"
+request_memory = 12000
+request_cpus = 8
+Output = log/job_$(ClusterId)_$(ProcId).out
+Error = log/job_$(ClusterId)_$(ProcId).err
+Log = log/job_$(ClusterId)_$(ProcId).log
+Arguments = $(Cluster) $(Process) /eos/user/r/rasharma/post_doc_ihep/aTGC/StandaloneMG5/test/2023_11_20_12h00/ AnkitaCards WpWmToLpNujj_01j_aTGC_pTW-150toInf_mWV-600to800_4f_NLO_FXFX
+Queue 1

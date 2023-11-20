@@ -1,0 +1,9 @@
+launch
+   0                  # Turn off showering/hadronization
+   set run_tag "test"
+   set use_syst False
+   set nevents 100
+   set iseed 11
+   set reweight_pdf False
+   set store_rwgt_info True
+   reweight

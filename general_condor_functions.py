@@ -9,24 +9,24 @@ def getbasic_parser():
     parser = argparse.ArgumentParser(description='User inputs')
 
     parser.add_argument('-i', '--inputpath',
-                        default='/store/user/lnujj/VVjj_aQGC/Gridpacks/',
+                        default='/eos/user/r/rasharma/post_doc_ihep/aTGC/StandaloneMG5/',
                         help='tar file path'
+                       )
+    parser.add_argument('-o', '--outputpath',
+                        default='/eos/user/r/rasharma/post_doc_ihep/aTGC/StandaloneMG5/',
+                        help='outputpath path of LHEFiles'
                        )
     parser.add_argument('-ip', '--InProcCardPath',
 		        default='',
 			help='path of input proc card'
                        )
     parser.add_argument('-n', '--nevents',
-                        default=5000,	# if number of jobs are more than 5k then MG5 splits them
+                        default=1000,	# if number of jobs are more than 5k then MG5 splits them
                         help='Total number of events to generate.'
                        )
     parser.add_argument('-p', '--ProcCard',
                         required=True,
                         help='input tar file name'
-                       )
-    parser.add_argument('-o', '--outputpath',
-                        default='/eos/user/r/rasharma/www/Madgraph/ggF/Condor/',
-                        help='outputpath path of LHEFiles'
                        )
     parser.add_argument('-od', '--outputdir',
                         default='test',
@@ -49,9 +49,13 @@ def getbasic_parser():
 			help='memory for condor jobs'
 		       )
     parser.add_argument('-tj', '--totaljobs',
-                        default=1,
+                        default=10,
 			help='number of condor jobs copy'
 		       )
+    parser.add_argument('-mg5', '--mg5version',
+                        default='https://launchpad.net/mg5amcnlo/lts/2.6.x/+download/MG5_aMC_v2.6.7.tar.gz',
+                        help='MG5_aMC version download link from launchpad'
+                          )
     return parser
 
 def create_output_directory(args):
@@ -131,11 +135,10 @@ def create_sh_file_for_condor(args, command, output_folder):
     outscript.write("\n"+'eval `scramv1 project CMSSW '+args.cmsswversion+'`')
     outscript.write("\n"+'cd '+ args.cmsswversion + '/src/')
     outscript.write("\n"+'eval `scram runtime -sh`')
-    #outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.5.tar.gz')
-    MadgraphTarFile = "MG5_aMC_v2.6.7.tar.gz"
-    MadgraphDirName = "MG5_aMC_v2_6_7"
-    outscript.write("\n"+'wget https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/'+MadgraphTarFile)
-    outscript.write("\n"+'tar -xf '+MadgraphTarFile)
+    # MadgraphDirName = "MG5_aMC_v2_6_7"
+    MadgraphDirName = args.mg5version.split('/')[-1].replace('.tar.gz','').replace('.', '_')
+    outscript.write("\n wget " + args.mg5version)
+    outscript.write("\n"+'tar -xf '+args.mg5version.split('/')[-1])
     outscript.write("\n"+'cd '+MadgraphDirName)
     outscript.write("\n"+'cp ../../../'+args.ProcCard+' .')
     outscript.write("\n"+'echo "====> List files : " ')

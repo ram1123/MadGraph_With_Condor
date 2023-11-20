@@ -1,4 +1,6 @@
-# User defined 
+# User defined
+*
+CMSSW_*/
 rasharma.cc
 *.tar.gz
 docker_stderror
